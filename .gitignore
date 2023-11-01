@@ -1,0 +1,12 @@
+/.idea/
+/common.iml
+/common-domain.iml
+/raffle-ticketing-system.iml
+/ticket-application.iml
+/ticket-application-service.iml
+/ticket-container.iml
+/ticket-dataaccess.iml
+/ticket-domain.iml
+/ticket-domain-core.iml
+/ticket-messaging.iml
+/ticket-service.iml

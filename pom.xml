@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.7</version>
+        <relativePath/> <!--Parent maven projectde local file system'i search eder. Springboot için external parent projectimiz olduğundan local file system de search etmeye gerek yok ve bu özelliği boş bırakıyoruz. Parent .pom springbootlibrary'den yüklenecektir, bu bestpracticedir. !-->
+    </parent>
+
+    <groupId>com.raffle-ticketing-system</groupId>
+    <artifactId>raffle-ticketing-system</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>ticket-service</module>
+        <module>common</module>
+    </modules><!-- default value is jar. Ana proje için source code yazmıyoruz ve jar packing kullanmıyoruz. Alt serviceler ve moduller için parent pom dosyası.!-->
+
+    <properties>
+        <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
+    </properties>
+
+    <dependencyManagement> <!-- Alt modullerdeki bağımlılıkların versionunu buradan merkezileştirir.!-->
+        <dependencies>
+            <dependency>
+                <groupId>com.raffle-ticketing-system</groupId>
+                <artifactId>ticket-domain-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.raffle-ticketing-system</groupId>
+                <artifactId>ticket-application-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.raffle-ticketing-system</groupId>
+                <artifactId>ticket-application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.raffle-ticketing-system</groupId>
+                <artifactId>ticket-dataaccess</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.raffle-ticketing-system</groupId>
+                <artifactId>ticket-messaging</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.raffle-ticketing-system</groupId>
+                <artifactId>common-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- ticket-container eklemiyoruz. Çünkü diğer moduller tarafından kullanılmıyor.!-->
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <release>17</release>
+                </configuration>
+            </plugin>
+
+            <plugin> <!-- 'mvn -X depgraph:aggregate -DcreateImage=true -DreduceEdges=false -Dscope=compile' komutuyla dependencyleri gorselleştiriyoruz!-->
+                <groupId>com.github.ferstl</groupId>
+                <artifactId>depgraph-maven-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <graphFormat>puml</graphFormat>
+                    <scope>compile</scope>
+                    <excludes>
+                        <exclude>org.slf4j:slf4j-api</exclude>
+                        <exclude>com.google.guava:guava</exclude>
+                        <exclude>io.vavr:vavr</exclude>
+                    </excludes>
+                    <transitiveExcludes>
+                        <transitiveExclude>*</transitiveExclude>
+                    </transitiveExcludes>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build> <!-- maven-compiler-plugin; Maven için Java versionunu ayarlayacak olan plugindir.!-->
+
+</project>
