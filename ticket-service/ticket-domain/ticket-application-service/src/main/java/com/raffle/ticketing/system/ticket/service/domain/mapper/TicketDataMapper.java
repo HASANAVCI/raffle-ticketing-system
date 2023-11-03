@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*
+/**
     TicketDataMapperClass - Input Dto'lardan Domain objeleri yaratmak için. Bi nevi Factory Pattern çünkü burada object creation ve conversition işlemleri yapılıyor.
  */
 @Component

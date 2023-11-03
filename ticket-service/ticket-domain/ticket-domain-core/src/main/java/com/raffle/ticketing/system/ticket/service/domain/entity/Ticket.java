@@ -15,7 +15,7 @@ public class Ticket extends AggregateRoot<TicketId> {
     private final Money price;
     private final List<TicketItem> items;
 
-    /*
+    /**
      Non-final trackingId, ticketStatus and failureMessages. Because they can change when processing business logic..
      */
     private TrackingId trackingId;

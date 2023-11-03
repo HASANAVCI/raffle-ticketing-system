@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
-/*
+/**
     PaymentService'den TicketService'e dönen responsu tutacaktır.
  */
 @Getter
@@ -18,7 +18,7 @@ import java.util.List;
 public class PaymentResponse {
     private String id;
 
-    /*
+    /**
         Serviceler arasında mesajda kullanacagız.
      */
     private String sagaId;

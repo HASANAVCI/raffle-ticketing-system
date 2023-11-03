@@ -5,7 +5,7 @@ import com.raffle.ticketing.system.domain.valueobject.Money;
 import com.raffle.ticketing.system.domain.valueobject.RaffleId;
 import com.raffle.ticketing.system.domain.valueobject.TicketId;
 
-/*
+/**
     For Product
  */
 public class Raffle extends BaseEntity<RaffleId> {

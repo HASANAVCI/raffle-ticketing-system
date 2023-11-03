@@ -7,7 +7,7 @@ import com.raffle.ticketing.system.ticket.service.domain.dto.track.TrackTicketRe
 
 import javax.validation.Valid;
 
-/*
+/**
     3 tane input port var listenerlarla beraber. Ve input portları ApplicationService implement ediyoruz.
  */
 public interface TicketApplicationService {

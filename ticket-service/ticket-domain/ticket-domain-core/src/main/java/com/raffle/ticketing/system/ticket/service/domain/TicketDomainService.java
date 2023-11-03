@@ -8,7 +8,7 @@ import com.raffle.ticketing.system.ticket.service.domain.event.TicketPaidEvent;
 
 import java.util.List;
 
-/*
+/**
     DomainEventsHandlingProcess için bu yöntem kullanıldı. Eventler, entityde veya domain servicede yani domain core'da oluşturulmaya devam edecektir.
     Fakat event firing(olay tetiklemesi) ApplicationService de olacaktır.
 

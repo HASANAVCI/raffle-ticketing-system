@@ -9,7 +9,7 @@ public interface TicketRepository {
 
     Ticket save(Ticket ticket);
 
-    /*
+    /**
         Optional kullanıyoruz çünkü ilgili trackingId'ye sahip bir Ticket bulabilir veya olmayabilir!
      */
     Optional<Ticket> findByTrackingId(TrackingId trackingId);

@@ -13,7 +13,7 @@ public class Money {
         this.amount = amount;
     }
 
-    /*
+    /**
      amount=0.0 -> amount.equals(BigDecimal.ZERO) >0 -->return FALSE
      BigDecimal işlemlerinde compareTo() kullanmak BestPractice'dir!
      */

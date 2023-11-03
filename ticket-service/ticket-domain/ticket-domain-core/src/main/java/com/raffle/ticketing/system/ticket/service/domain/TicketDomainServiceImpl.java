@@ -18,7 +18,7 @@ public class TicketDomainServiceImpl implements TicketDomainService {
 
     private static final String UTC = "UTC";
 
-    /*
+    /**
         DomainService'in bazı business requirementları kontrol etmek için validateAndInitializeTicket() methodunda görüldüğü gibi birden fazla
         Aggregate kullanıyor!
      */
@@ -55,7 +55,7 @@ public class TicketDomainServiceImpl implements TicketDomainService {
         return new TicketPaidEvent(ticket, ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
-    /*
+    /**
         Ticket'lama işleminin son adımıdır ve bir event döndürmez.Bilet onaylandıktan sonra başka bir event tetiklemeye gerek yok!
         Bunun yerine client, TrackingId ile bir get() endpointini kullanrak dataları getirir.
         Client mesela approve() işleminden sonra örneğin delivery(sipariş) akışı için bir event consumer'ımız olsaydı client için event dönebilirdik :)

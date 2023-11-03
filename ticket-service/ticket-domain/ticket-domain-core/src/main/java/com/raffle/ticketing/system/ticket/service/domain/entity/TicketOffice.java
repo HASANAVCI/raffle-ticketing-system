@@ -5,7 +5,7 @@ import com.raffle.ticketing.system.domain.valueobject.OfficeId;
 
 import java.util.List;
 
-/*
+/**
     Bilet Gişe for ticket sales and operations
  */
 public class TicketOffice extends AggregateRoot<OfficeId> {

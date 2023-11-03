@@ -2,7 +2,7 @@ package com.raffle.ticketing.system.ticket.service.domain.ports.input.message.li
 
 import com.raffle.ticketing.system.ticket.service.domain.dto.message.PaymentResponse;
 
-/*
+/**
     EventListener'lar bir tür özel ApplicationService türüdür.
  */
 public interface PaymentResponseMessageListener {
