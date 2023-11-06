@@ -3,6 +3,7 @@ package com.raffle.ticketing.system.ticket.service.domain.mapper;
 import com.raffle.ticketing.system.domain.valueobject.*;
 import com.raffle.ticketing.system.ticket.service.domain.dto.create.CreateTicketCommand;
 import com.raffle.ticketing.system.ticket.service.domain.dto.create.CreateTicketResponse;
+import com.raffle.ticketing.system.ticket.service.domain.dto.track.TrackTicketResponse;
 import com.raffle.ticketing.system.ticket.service.domain.entity.Raffle;
 import com.raffle.ticketing.system.ticket.service.domain.entity.Ticket;
 import com.raffle.ticketing.system.ticket.service.domain.entity.TicketItem;
@@ -51,6 +52,14 @@ public class TicketDataMapper {
         return CreateTicketResponse.builder()
                 .trackingId(ticket.getTrackingId().getValue())
                 .ticketStatus(ticket.getTicketStatus())
+                .build();
+    }
+
+    public TrackTicketResponse ticketToTrackTicketResponse(Ticket ticket) {
+        return TrackTicketResponse.builder()
+                .ticketTrackingId(ticket.getTrackingId().getValue())
+                .ticketStatus(ticket.getTicketStatus())
+                .failureMessages(ticket.getFailureMessages())
                 .build();
     }
 }
