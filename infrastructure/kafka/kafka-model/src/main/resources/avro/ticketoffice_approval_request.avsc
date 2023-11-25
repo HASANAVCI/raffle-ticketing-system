@@ -1,0 +1,73 @@
+{
+  "namespace": "com.raffle.ticketing.system.kafka.ticket.avro.model",
+  "type": "record",
+  "name": "TicketOfficeApprovalRequestAvroModel",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "sagaId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "ticketOfficeId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "ticketId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "officeTicketStatus",
+      "type": {
+        "type": "enum",
+        "name": "OfficeTicketStatus",
+        "symbols": ["PAID"]
+      }
+    },
+    {
+      "name": "raffles",
+      "type": {
+        "type": "array",
+        "items":{
+          "name":"Raffle",
+          "type":"record",
+          "fields":[
+            {"name":"id", "type": "string", "logicalType": "uuid"},
+            {"name":"quantity", "type": "int"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "price",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 10,
+        "scale": 2
+      }
+    },
+    {
+      "name": "createdAt",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    }
+  ]
+}
