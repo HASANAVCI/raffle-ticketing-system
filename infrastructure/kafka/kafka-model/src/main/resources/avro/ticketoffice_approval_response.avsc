@@ -1,0 +1,59 @@
+{
+  "namespace": "com.raffle.ticketing.system.kafka.ticket.avro.model",
+  "type": "record",
+  "name": "TicketOfficeApprovalResponseAvroModel",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "sagaId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "ticketOfficeId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "ticketId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "createdAt",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "ticketApprovalStatus",
+      "type": {
+        "type": "enum",
+        "name": "TicketApprovalStatus",
+        "symbols": ["APPROVED", "REJECTED"]
+      }
+    },
+    {
+      "name": "failureMessages",
+      "type": {
+        "type": "array",
+        "items":{
+          "type":"string"
+        }
+      }
+    }
+  ]
+}
