@@ -22,6 +22,8 @@ public class Ticket extends AggregateRoot<TicketId> {
     private TicketStatus ticketStatus;
     private List<String> failureMessages;
 
+    public static final String FAILURE_MESSAGE_DELIMITER = ",";
+
     public void initializeTicketing() {
         setId(new TicketId(UUID.randomUUID()));
         trackingId = new TrackingId(UUID.randomUUID());
